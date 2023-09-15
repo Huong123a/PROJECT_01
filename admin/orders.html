@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Users managerment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/orders.css">
+</head>
+
+<body>
+    <div class="app">
+        <section class="users">
+            <div class="container-fluid">
+                <div class="users-content">
+                    <div class="left-side-bar">
+
+                        <ul class="list-action">
+                            <li>
+
+                            </li>
+                            <li>
+                                <a href="./user-management.html" class="active">Người dùng</a>
+                            </li>
+                            <li>
+                                <a href="./product-management.html">Sản phẩm</a>
+                            </li>
+                            <li>
+                                <a href="./oders.html">Đơn hàng</a>
+                            </li>
+
+
+                            <li>
+                                <a href="./vouchers.html">Vouchers</a>
+                            </li>
+                            <li>
+                                <a href="./login.html"><i class="fa-solid fa-arrow-right-from-bracket"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="content-right">
+                        <div class="users">
+                            <h3>Orders</h3>
+                            <div class="arrange-product">
+                                <span>filter:</span>
+                                <select id="sort-product">
+                                  <option value="">order placed</option>
+                                  <option value="1">order placed</option>
+                                  <option value="1">order placed</option>
+                                </select>
+                              </div>
+                            <div class="list-manager">
+                                <form action="" class="search-account" id="search-user">
+                                    <input type="text" placeholder="search by name..." />
+                                    <button type="">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </form>
+                                <table class="table-manager" id="list-user">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Order ID</th>
+                                            <th>Ngày Oder</th>
+                                            <th>User Oder</th>
+                                            <th>Tổng tiền</th>
+
+                                            <th>Trạng thái</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ODER_01</td>
+                                            <td>2/9/2023</td>
+                                            <td>user_01</td>
+                                            <td>780.000VNĐ</td>
+                                            <td>oder placed</td>
+                                            <td class="td-action">
+                                                <button class="action  primary-color" id="btn-view">
+                                                    View</button><button class="action  blue-color" id="btn-edit">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ODER_01</td>
+                                            <td>2/9/2023</td>
+                                            <td>user_01</td>
+                                            <td>780.000VNĐ</td>
+                                            <td>oder placed</td>
+                                            <td class="td-action">
+                                                <button class="action  primary-color" id="btn-view">
+                                                    View</button><button class="action  blue-color" id="btn-edit">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ODER_01</td>
+                                            <td>2/9/2023</td>
+                                            <td>user_01</td>
+                                            <td>780.000VNĐ</td>
+                                            <td>oder placed</td>
+                                            <td class="td-action">
+                                                <button class="action  primary-color" id="btn-view">
+                                                    View</button><button class="action  blue-color" id="btn-edit">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>ODER_01</td>
+                                            <td>2/9/2023</td>
+                                            <td>user_01</td>
+                                            <td>780.000VNĐ</td>
+                                            <td>oder placed</td>
+                                            <td class="td-action">
+                                                <button class="action  primary-color" id="btn-view">
+                                                    View</button><button class="action  blue-color" id="btn-edit">
+                                                    Edit
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+    </div>
+
+    <script></script>
+</body>
+
+</html>

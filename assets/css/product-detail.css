@@ -1,0 +1,98 @@
+.product_detail-container {
+  display: flex;
+  border: 1px solid rgb(198, 170, 170);
+  margin: 50px;
+  box-shadow: 1px 2px 4px rgb(186, 112, 78);
+}
+.product_detail-banner {
+  width: 40%;
+  margin: 20px;
+}
+.product_detail-content {
+  margin-top: 100px;
+  width: 44%;
+  height: 100%;
+}
+.btn-size button {
+  margin: 0 5px;
+  width: 40px;
+  border: 1px solid rgb(73, 66, 66);
+}
+.btn-size button:hover {
+  border: 1px solid rgb(208, 73, 73);
+  background-color: rgb(208, 73, 73);
+}
+.btn-quantity button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn-quantity .btn-quantity-reduce:hover {
+  background-color: rgb(192, 203, 203);
+  transition: 0.2s ease-in-out;
+}
+.btn-quantity .btn-quantity-add:hover {
+  background-color: rgb(192, 203, 203);
+  transition: 0.2s ease-in-out;
+}
+.btn-quantity span {
+  padding: 0 20px;
+}
+.btn-quantity {
+  border: 1px solid rgb(150, 134, 134);
+  width: 100px;
+  margin: 0 0 15px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.product_detail-btn-buynow {
+  border-radius: 5px;
+  padding: 8px;
+  width: 35%;
+  margin-bottom: 10px;
+  background: transparent;
+  border-radius: 4px;
+  border: 1px solid blue;
+  cursor: pointer;
+  font-weight: 500;
+  color: blue;
+  font-size: 16px;
+}
+.product_detail-btn-buynow:hover {
+  background-color: rgb(132, 231, 246);
+}
+.btn-add-product_detail {
+  border-radius: 5px;
+  padding: 8px;
+  width: 35%;
+  margin-bottom: 10px;
+  background: rgb(255, 66, 78);
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+}
+.btn-add-product_detail:hover {
+  background-color: rgb(192, 203, 203);
+  transition: 0.2s ease-in-out;
+}
+.product_detail-btn-delete {
+  border: 1px solid rgb(150, 134, 134);
+  width: 40px;
+  background-color: rgb(165, 68, 68);
+}
+.product_detail-btn-delete:hover {
+  background-color: brown;
+}
+.product_detail-content h5 {
+  color: rgb(139, 166, 187);
+}
+.quantity-input {
+  width: 30px;
+  text-align: center;
+}

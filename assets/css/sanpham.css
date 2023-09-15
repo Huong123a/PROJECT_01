@@ -1,0 +1,64 @@
+.select-wrapper {
+    position: relative;
+    width: 50px; 
+}
+
+
+select#lang-select {
+    float: right;
+    width: 15%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 25px;
+}
+.sb-titel{
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    line-height: 1.05;
+    text-transform: uppercase;
+}
+.widget .is-divider {
+    margin-top: 0.66em;
+}
+.is-divider {
+    background-color: #333133;
+}
+.is-divider {
+    display: block;
+    height: 3px;
+    margin: 1em 0;
+    max-width: 30px;
+    width: 100%;
+}
+.sidebar{
+    margin-top: 25px;
+}
+.sidebar .navigation ul{
+    padding: 0;
+    list-style: none;
+    margin: 0;
+}
+.sidebar .navigation ul li {
+    list-style: none;
+    margin: 0;
+    text-align: left;
+    align-items: center;
+    display: flex;
+}
+.sidebar .navigation ul li a{
+    font-size: 14px;
+    color: #333133;
+    font-family: Proxima,sans-serif!important;
+    display: inline-block;
+    flex: 1;
+    padding: 6px 0;
+}
+.sb-top{
+    margin-bottom: 24px;
+}
+#lang-select{
+    margin-right: 16px;
+}

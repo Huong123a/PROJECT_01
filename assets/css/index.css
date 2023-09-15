@@ -11,12 +11,13 @@ a {
 }
 /* main navbar */
 .main-navbar {
-  border-bottom: 1px solid #ccc;
+ 
 }
 .main-navbar .top-navbar {
   background-color: #ffa500;
   padding-top: 12px;
   padding-bottom: 12px;
+
 }
 .main-navbar .top-navbar .brand-name {
   color: #fff;
@@ -139,4 +140,11 @@ h2 {
 .carousel-item img {
   height: 500px;
   object-fit: cover;
+}
+.navbar-expand-lg{
+  border-bottom: 1px solid rgb(182, 178, 178);
+}
+
+.text-black {
+  background-color: #e1e9f1!important;
 }
