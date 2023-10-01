@@ -5,7 +5,7 @@ let productsDB = [
     type: "kem dưỡng ẩm",
     ID: "SP_1",
     qantity: 30,
-    name: "Kem dưỡng ẩm mềm mịn cho da dầu lão hóa Resist",
+    name: "Kem Resist",
     imageURL:
       "/assets/img/kem-duong-am-ho-tro-tre-hoa-da-paula-s-choice-resist-anti-aging-clear-skin-hydrator-50ml-63b390bb5f922-03012023091939.jpg",
     price: 1000000,
@@ -29,7 +29,7 @@ let productsDB = [
     type: "tinh chất cải thiện",
     ID: "SP_3",
     qantity: 20,
-    name: "Tinh chất chống lão hóa từ Retinol và Bakuchiol",
+    name: "Tinh chất Retinol",
     imageURL:
       "/assets/img/7970-resist-skin-restoring-moisturizer-with-spf-50-slide-1-2882020-1.jpg",
     price: 500000,
@@ -41,7 +41,7 @@ let productsDB = [
     type: "kem chống nắng",
     ID: "SP_4",
     qantity: 10,
-    name: "Kem chống nắng chống lão hóa Resist Skin Restoring Moisturizer Broad Spectrum SPF 50 60ml",
+    name: "Kem chống nắng",
     imageURL:
       "/assets/img/7970-resist-skin-restoring-moisturizer-with-spf-50-slide-1-2882020-1.jpg",
     price: 800000,
@@ -53,7 +53,7 @@ let productsDB = [
     type: "tinh chất cải thiện",
     ID: "SP_5",
     qantity: 20,
-    name: "Tinh chất chống lão hóa từ Retinol và Bakuchiol",
+    name: "Tinh chất chống lão hóa",
     imageURL:
       "/assets/img/7970-resist-skin-restoring-moisturizer-with-spf-50-slide-1-2882020-1.jpg",
     price: 500000,
@@ -65,7 +65,7 @@ let productsDB = [
     type: "kem dưỡng ẩm",
     ID: "SP_6",
     qantity: 30,
-    name: "Kem dưỡng ẩm mềm mịn cho da dầu lão hóa Resist",
+    name: "Kem dưỡng ẩm mềm mịn",
     imageURL:
       "/assets/img/kem-duong-am-ho-tro-tre-hoa-da-paula-s-choice-resist-anti-aging-clear-skin-hydrator-50ml-63b390bb5f922-03012023091939.jpg",
     price: 1000000,

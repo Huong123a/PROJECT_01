@@ -10,9 +10,7 @@ a {
   text-decoration: none !important;
 }
 /* main navbar */
-.main-navbar {
- 
-}
+
 .main-navbar .top-navbar {
   background-color: #ffa500;
   padding-top: 12px;
@@ -147,4 +145,7 @@ h2 {
 
 .text-black {
   background-color: #e1e9f1!important;
+}
+.btn-seeMore{
+  color: white;
 }
