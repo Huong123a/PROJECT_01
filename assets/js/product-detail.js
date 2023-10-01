@@ -112,11 +112,10 @@ function handleQuantityAdd() {
 }
 function handleQuantityReduce() {
   console.log(9999999);
-
-  if (Number(quantityInputElement.vaule) > 0) {
+ if (Number(quantityInputElement.value) > 1) {
     quantityInputElement.value = Number(quantityInputElement.value) - 1;
   } else {
-    quantityInputElement.value = 0;
+    quantityInputElement.value = 1;
   }
   console.log(1231233, quantityInputElement.value);
 }
