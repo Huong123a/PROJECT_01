@@ -10,6 +10,5 @@ function getDataFromLocalStorage(key) {
     location.href = `${url}?${param}`;
   }
   
-  const params = new URLSearchParams(document.location.search);
-  const id = params.get("id");
+ 
   

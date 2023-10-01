@@ -18,10 +18,10 @@ function renderProducts() {
                   <img src="${product.imageURL}"
                       alt="Sản phẩm 1" class="card-img-top">
                   <div class="card-body">
-                  <a href="#" onclick="handleView('${product.ID}')">${product.name}</a>
+                  <a href="#">${product.name}</a>
 
                       <p class="card-price">$${product.price}</p>
-                      <a href="#" class="btn btn-warning">Thêm vào giỏ hàng</a>
+                      <a href="#" class="btn btn-warning" onclick="handleView('${product.ID}')">Thêm vào giỏ hàng</a>
                   </div>
               </div>
           </div>
@@ -35,13 +35,8 @@ function renderProducts() {
 renderProducts(); // render lần đầu
 //tìm kiếm thông tin sản phẩm khi click vào tên 1 sp
 function handleView(id) {
-  console.log(id);
-  const product = products.find((product) => id === product.ID);
-  console.log(product);
-  product.quantity = 1;
-  localStorage.setItem("product", JSON.stringify(product));
-
-  document.location.href = "./detail-product.html";
+  
+  navigationParam('detail-product.html',`id=${id}` )
 }
 
 

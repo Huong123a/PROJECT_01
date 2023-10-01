@@ -78,20 +78,6 @@ let productsDB = [
 if (!localStorage.getItem("products")) {
   localStorage.setItem("products", JSON.stringify(productsDB));
 }
-// localStorage.setItem("products", JSON.stringify(productsDB));
-let userDB = [
-  { email: "abc@gmail.com", name: "Thái", password: 123456, address: "Hà Nội", gender: true },
-  { email: "abc1@gmail.com", name: "Quyet", password: 123456, address: "Hải Phòng" , gender: true},
-  { email: "abc2@gmail.com", name: "Vien", password: 123456, address: "Đà Nẵng" , gender: true},
-  { email: "abc3@gmail.com", name: "Minh", password: 123456, address: "Sài Gòn", gender: true },
-  { email: "abc3ê@gmail.com", name: "Huong", password: 123456, address: "Sài Gòn", gender: false},
 
-];
-
-if (!localStorage.getItem("users")) {
-  localStorage.setItem("users", JSON.stringify(userDB));
-}
-
-// localStorage.setItem("users", JSON.stringify(userDB))
 
 

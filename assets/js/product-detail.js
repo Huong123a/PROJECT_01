@@ -1,257 +1,122 @@
-//lay du lieu
-// const productID = //laays tu url 
+rederProductDetail();
+function rederProductDetail() {
+  const params = new URLSearchParams(document.location.search);
+  const id = params.get("id");
+  console.log(1111, id);
+  const productsDB = JSON.parse(localStorage.getItem("products"));
+  console.log(333, productsDB);
+  const productDetailElement = document.querySelector(
+    ".product_detail-container"
+  );
+  console.log(222, productDetailElement);
 
-const products = JSON.parse(localStorage.getItem("product"));
-const product = products.find(p => p.id === productID)
-//lay thong tin tu nguowi dung
-const listUsers = JSON.parse(localStorage.getItem('listUsers'))
-//neu chua dang nhap thi yeu cau dang nhap
-if(!user){
-  alert('Vui long dang nhap de mua hang')
-  window.location.href= '/auth/login.html/index.html'
-
-}
-//truy van den noi render
-const productDetailElement = document.querySelector(".product_detail-content");
-let cartLocal = JSON.parse(localStorage.getItem("cart")) || [];
-
-let html = `<h4>${product.name}</h4>
-<h5>${product.price}</h5>
-
-<p>Chọn số lượng:</p>
-<div class="btn-quantity">
-  <button class="btn-quantity-reduce">-</button>
-  <input class="quantity-input" type="text" value="1">
-  <button class="btn-quantity-add">+</button>
-</div>
-
-<div>
-  <button class="product_detail-btn-buynow">Thêm vào giỏ hàng</button>
-
-</div>
-
-<h6>Mô tả sản phẩm</h6>
-<hr />
-${product.description}
-`;
-productDetailElement.innerHTML = html;
-
-function addProduct() {
-  // Lấy số lượng về
-  let new_item = Number(document.querySelector(".quantity-input").value);
-  // B2: Tìm tài khoản người dùng và thay đổi theo số lượng đó (lấy về)
-  //  ----> Nếu trong giỏ hàng có sản phẩm --> cộng dồn lên
-  // ----> Nếu không có sản phẩm --> thêm sản phẩm vào cart
-  // B3: Đẩy lên localstorage
-  // B4: render lại header
-
-  addToCard(new_item);
-}
-//tăng giảm btn mua hàng
-// Lấy các phần tử DOM cần sử dụng
-const quantityInput = document.querySelector(".quantity-input");
-const btnQuantityReduce = document.querySelector(".btn-quantity-reduce");
-const btnQuantityAdd = document.querySelector(".btn-quantity-add");
-// Xử lý khi người dùng nhấn nút "-" để giảm số lượng
-btnQuantityReduce.addEventListener("click", () => {
-  let currentValue = parseInt(quantityInput.value);
-
-  if (currentValue > 1) {
-    currentValue--;
-    quantityInput.value = currentValue;
-  }
-});
-// Xử lý khi người dùng nhấn nút "+" để tăng số lượng
-btnQuantityAdd.addEventListener("click", () => {
-  let currentValue = parseInt(quantityInput.value);
-  currentValue++;
-  quantityInput.value = currentValue;
-});
-
-//Tạo một hàm JavaScript để thêm sản phẩm vào giỏ hàng và lưu vào Local Storage:
-function addToCart(productName, productPrice, quantity) {
-  // Lấy danh sách sản phẩm từ Local Storage (nếu đã tồn tại)
-  let productInCart = listUsers.cart.find(item=>item.productID===productId)
-  if(productInCart){
-    //Neu da co, cong dan so luong
-    productInCart.quantity += quantity;
-  }else{
-    //neu chua co, them moi
-    listUsers.cart.push{
-      productID: productId,
-      quantity: quantity,
-      price: productPrice,
-      
-
+  for (const product of productsDB) {
+    if (product.ID === id) {
+      productDetailElement.innerHTML = `<section class="banner-product product_detail-banner">
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="${product.imageURL}" class="d-block" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="${product.imageURL}" class="d-block" alt="..." />
+          </div>
+          <div class="carousel-item">
+            <img src="${product.imageURL}"
+              class="d-block" alt="..." />
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </section>
+    <section class="product_detail-content">
+      <h4>${product.name}</h4>
+      <h5>Giá: ${product.price.toLocaleString()}VNĐ</h5>
+  
+      <p>Chọn số lượng:</p>
+      <div class="btn-quantity">
+        <button class="btn-quantity-reduce" onclick='handleQuantityReduce()'>-</button><input class="quantity-input" type="text" >
+        <button class="btn-quantity-add" onclick='handleQuantityAdd()'>+</button>
+      </div>
+  
+      <div>
+        <a><button type='button' class="btn-add-product_detail" onclick='handleAddCart("${
+          product.ID
+        }")'>
+            Thêm vào giỏ hàng
+          </button></a> <br>
+  
+        <button class="product_detail-btn-buynow">Mua ngay</button>
+  
+      </div>
+  
+      <h6>Mô tả sản phẩm</h6>
+      <hr />
+     ${product.description}
+    </section>
+      `;
     }
   }
-
-  }
-   
-  // Tạo một đối tượng sản phẩm
-  const product = {
-   
-    quantity: quantity,
-  }; name: productName,
-    
-
-  // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
-  const existingProductIndex = cart.findIndex(
-    (item) => item.name === productName
-  );
-
-  if (existingProductIndex !== -1) {
-    // Nếu sản phẩm đã tồn tại trong giỏ hàng, cập nhật số lượng
-    cart[existingProductIndex].quantity += quantity;
-  } else {
-    const listUser = JSON.parse(localStorage.getItem("listUsers")) || [];
-    const userLogin = JSON.parse(localStorage.getItem("userLogin"));
-
-    const userDB = listUser.find((user) => user.email == userLogin.email);
-
-    if (userDB?.cart) {
-      let isExist = false;
-      for (const productCart of userDB.cart) {
-        if (product.id === productCart.id) {
-          productCart.quantity += quantity;
-          isExist = true;
-          break;
+}
+let quantityInputElement = document.querySelector(".quantity-input");
+quantityInputElement.value = 1;
+console.log(34545, Number(quantityInputElement.value));
+function handleAddCart(id) {
+  console.log(666, id);
+  const productsDB = JSON.parse(localStorage.getItem("products"));
+  const usersDB = JSON.parse(localStorage.getItem("users"));
+  const userLogin = JSON.parse(localStorage.getItem("userLogin")) || {};
+   let productUser = {};
+  for (const product of productsDB) {
+    if (product.ID === id) {
+      product.qantity = quantityInputElement.value;
+      productUser = product;
+      console.log(444, productUser);
+      for (const user of usersDB) {
+        if (userLogin.email === user.email) {
+          if (!user.cart) {
+            user.cart = [productUser];
+            console.log(777, user.cart);
+          } else {
+            user.cart.push(productUser);
+          }
+          localStorage.setItem("users", JSON.stringify(usersDB));
         }
       }
-      if (!isExist) {
-        userDB.cart.push(product);
-      }
-    } else {
-      product.quantity = quantity;
-      userDB.cart = [product];
     }
-
-    localStorage.setItem("listUsers", JSON.stringify(listUser));
-    // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào danh sách
   }
-
-  // Lưu danh sách sản phẩm vào Local Storage
-  localStorage.setItem("listUsers", JSON.stringify(listUser));
-
-  // Hiển thị thông báo cho người dùng
-  alert("Mua hàng thành công. Đã thêm sản phẩm vào giỏ hàng");
+  location.href = "/pages/user/cart/index.html";
 }
 
-//btn mua
-const buyNowButton = document.querySelector(".product_detail-btn-buynow");
-console.log(buyNowButton);
-buyNowButton.addEventListener("click", function () {
-  const productName = document.querySelector(
-    ".product_detail-content h4"
-  ).textContent;
-  const productPrice = document.querySelector(
-    ".product_detail-content h5"
-  ).textContent;
-  const quantityInput = document.querySelector(".quantity-input");
-  const quantity = parseInt(quantityInput.value);
-  console.log(quantity);
-
-  addToCart(productName, productPrice, quantity);
-  changeCartNumber();
-});
-
-function displayCart() {
-  const cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // const cartTableBody = document.querySelector('.table tbody');
-  // console.log(cartTableBody);
-  // cartTableBody.innerHTML = ''; // Xóa nội dung hiện tại của giỏ hàng
-
-  // if (cart.length === 0) {
-  //   cartTableBody.innerHTML = '<tr><td colspan="6">Giỏ hàng trống.</td></tr>';
-  //   return;
-  // }
-
-  // Tạo HTML để hiển thị danh sách sản phẩm trong giỏ hàng
-  const cartItemsHTML = cart.map(
-    (item, index) => `
-    <tr>
-      <td class="w-25">
-        <img src="../img/tay-te-bao-chet-paulas-choice-skin-perfecting-2-bha-liquid-exfoliate-10.webp"
-          class="img-fluid img-thumbnail" alt="Sản phẩm">
-      </td>
-      <td>${item.name}</td>
-      <td>${item.price}</td>
-      <td class="qty"><input type="text" class="form-control" value="${
-        item.quantity
-      }"></td>
-      <td>${item.price * item.quantity}VNĐ</td>
-      <td>
-        <a href="#" class="btn btn-danger btn-sm" onclick="removeItemFromCart(${index})">
-          <i class="fa fa-times"></i>
-        </a>
-      </td>
-    </tr>
-  `
-  );
-
-  // Thêm HTML vào bảng giỏ hàng
-  // cartTableBody.innerHTML = cartItemsHTML.join('');
+function handleQuantityAdd() {
+  console.log(9999999);
+  quantityInputElement.value = Number(quantityInputElement.value) + 1;
+  console.log(1231233, quantityInputElement.value);
 }
+function handleQuantityReduce() {
+  console.log(9999999);
 
-function removeItemFromCart(index) {
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-  // Xóa sản phẩm tại vị trí index
-  cart.splice(index, 1);
-
-  // Lưu danh sách sản phẩm mới vào Local Storage
-  localStorage.setItem("cart", JSON.stringify(cart));
-
-  // Hiển thị lại giỏ hàng sau khi xóa
-  displayCart();
-  changeCartNumber();
-}
-window.addEventListener("load", displayCart);
-
-//
-//
-const tenSanPham = document.querySelector("h4").textContent;
-const giaSanPham = document.querySelector("h5").textContent;
-const moTaSanPham = document.querySelector("h6").nextSibling.textContent.trim();
-
-const thongTinSanPham = {
-  ten: tenSanPham,
-  gia: giaSanPham,
-  moTa: moTaSanPham,
-  soLuong: 1,
-};
-
-const thongTinSanPhamJSON = JSON.stringify(thongTinSanPham);
-
-// Lưu chuỗi JSON vào local storage
-localStorage.setItem("thongTinSanPham", thongTinSanPhamJSON);
-//
-function addToCard(quantity) {
-  const product = JSON.parse(localStorage.getItem("product"));
-  const listUser = JSON.parse(localStorage.getItem("listUsers")) || [];
-  const userLogin = JSON.parse(localStorage.getItem("userLogin"));
-
-  const userDB = listUser.find((user) => user.email == userLogin.email);
-  console.log(userDB, 11111111111);
-
-  if (userDB?.cart) {
-    let isExist = false;
-    for (const productCart of userDB.cart) {
-      if (product.id === productCart.id) {
-        productCart.quantity += quantity;
-        isExist = true;
-        break;
-      }
-    }
-    if (!isExist) {
-      userDB.cart.push(product);
-    }
+  if (Number(quantityInputElement.vaule) > 0) {
+    quantityInputElement.value = Number(quantityInputElement.value) - 1;
   } else {
-    product.quantity = quantity;
-    userDB.cart = [product];
+    quantityInputElement.value = 0;
   }
-
-  localStorage.setItem("listUsers", JSON.stringify(listUser));
-  changeCartNumber();
+  console.log(1231233, quantityInputElement.value);
 }

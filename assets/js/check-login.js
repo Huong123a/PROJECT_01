@@ -1,18 +1,18 @@
 checklogin();
 function checklogin() {
-  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const usersDB = JSON.parse(localStorage.getItem("users")) || [];
   //lấy dữ liệu có tên "userLogin" từ Local Storage.
   // lấy tham chiếu đến phần tử có id là "info-user"
   const userElement = document.getElementById("info-user");
-  console.log(userElement);
-  const user = JSON.parse(localStorage.getItem("userLogin")) || {};
-  if (user.isLogin) {
-    userElement.textContent = ``;
-  } else {
-    userElement.textContent = `<a href="./auth/login.html/index.html">
-    <i class="fa fa-user"></i>
-    Tài khoản
-  </a>`;
+
+  const userLogin = JSON.parse(localStorage.getItem("userLogin")) || {};
+  for (const user of usersDB) {
+    if (userLogin.email === user.email) {
+      userElement.innerHTML = `<a href="./auth/login.html/index.html">
+      <i class="fa fa-user"></i>
+      ${user.name}
+    </a>`;
+    }
   }
 }
 //user logout
