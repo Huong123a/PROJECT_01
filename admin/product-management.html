@@ -51,20 +51,22 @@
             <div class="users">
               <h3>Quản lý sản phẩm</h3>
               <div class="list-manager">
-                <form action="" class="search-account" id="search-user">
+                <div action="" class="search-account" id="search-user">
                   <input type="text" id="search-product" placeholder="Nhập từ khóa" />
                   <button type="button" onclick="searchProductEl()">
                     <i class="fa-solid fa-magnifying-glass" ></i>
                   </button>
-                </form>
+                
+                </div>
+                <button class="action view primary-color"  data-bs-toggle="modal" data-bs-target="#form-product">thêm sản phẩm</button>
                 <table class="table-manager" id="list-user">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Mã sản phẩm</th>
+                      <th>Loại sản phẩm</th>
                       <th>Tên sản phẩm</th>
                       <th>Gía</th>
-                      <th>Tồn kho</th>
+                      <th>Số lượng</th>
 
                       <th>Action</th>
                     </tr>
@@ -162,6 +164,50 @@
           </div>
         </div>
     </section>
+  </div>
+   <!-- Modal -->
+  <!-- Modal -->
+  <div class="modal fade" id="form-product" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Thêm mới sản phẩm</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form >
+            <div class="mb-3">
+                <label for="" class="form-label">ID:</label>
+                <input type="email" class="form-control" id="product-id" placeholder="ID">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Tên sản phẩm:</label>
+                <input type="text" class="form-control" id="product-name" placeholder="Tên sản phẩm">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Loại sản phẩm:</label>
+                <input type="text" class="form-control" id="product-skin" placeholder="Loại sản phẩm">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Giá sản phẩm:</label>
+                <input type="number" class="form-control" id="product-price" placeholder="Giá sản phẩm">
+            </div>
+            <div class="mb-3">
+                <label for="" class="form-label">Số lượng:</label>
+                <input type="number" class="form-control" id="product-qantity" placeholder="Số lượng">
+            </div>
+            <div class="mb-3">
+              <label for="" class="form-label">Mô tả:</label>
+              <input type="text" class="form-control" id="product-description" placeholder="Mô tả">
+          </div>
+        </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="handleAddProduct()" >Add sản phẩm</button>
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="/admin/product-manage.js"></script>
