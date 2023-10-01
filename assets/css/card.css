@@ -78,8 +78,12 @@ body {
 
   margin: 0 12px 20px;
 }
-.btn-payment{
+.btn-payment {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+input {
+  width: 30px;
+  text-align: center;
 }

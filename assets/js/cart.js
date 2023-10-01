@@ -10,8 +10,9 @@ function displayCart() {
   }
 
   // Tạo HTML để hiển thị danh sách sản phẩm trong giỏ hàng
-  const cartItemsHTML = cart.map(
-    (item, index) => `
+  const cartItemsHTML = cart.map((item, index) => {
+    console.log(item);
+    return `
       <tr>
         <td class="w-25">
           <img src="../img/tay-te-bao-chet-paulas-choice-skin-perfecting-2-bha-liquid-exfoliate-10.webp"
@@ -19,9 +20,9 @@ function displayCart() {
         </td>
         <td>${item.name}</td>
         <td>${item.price}</td>
-        <td class="qty"><input type="number" class="form-control" value="${
+        <td class="qty"><input type="text"  value="${
           item.quantity
-        }"></td>
+        }" readonly></td> 
         <td>${item.price * item.quantity}VND</td>
         <td>
           <a href="#" class="btn btn-danger btn-sm" onclick="removeItemFromCart(${index})">
@@ -29,8 +30,8 @@ function displayCart() {
           </a>
         </td>
       </tr>
-    `
-  );
+    `;
+  });
 
   // Thêm HTML vào bảng giỏ hàng
   cartTableBody.innerHTML = cartItemsHTML.join("");
@@ -47,5 +48,6 @@ function removeItemFromCart(index) {
 
   // Hiển thị lại giỏ hàng sau khi xóa
   displayCart();
+  changeCartNumber()
 }
 window.addEventListener("load", displayCart);

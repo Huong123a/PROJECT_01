@@ -1,23 +1,32 @@
 //lay du lieu
-const product = JSON.parse(localStorage.getItem("product"));
+// const productID = //laays tu url 
+
+const products = JSON.parse(localStorage.getItem("product"));
+const product = products.find(p => p.id === productID)
+//lay thong tin tu nguowi dung
+const listUsers = JSON.parse(localStorage.getItem('listUsers'))
+//neu chua dang nhap thi yeu cau dang nhap
+if(!user){
+  alert('Vui long dang nhap de mua hang')
+  window.location.href= '/auth/login.html/index.html'
+
+}
 //truy van den noi render
 const productDetailElement = document.querySelector(".product_detail-content");
 let cartLocal = JSON.parse(localStorage.getItem("cart")) || [];
+
 let html = `<h4>${product.name}</h4>
 <h5>${product.price}</h5>
 
 <p>Chọn số lượng:</p>
 <div class="btn-quantity">
-  <button class="btn-quantity-reduce">-</button><input class="quantity-input" type="text" value="1">
+  <button class="btn-quantity-reduce">-</button>
+  <input class="quantity-input" type="text" value="1">
   <button class="btn-quantity-add">+</button>
 </div>
 
 <div>
-  <a ><button class="btn-add-product_detail" onClick="addProduct()">
-      Thêm vào giỏ hàng
-    </button></a> <br>
-
-  <button class="product_detail-btn-buynow">Mua ngay</button>
+  <button class="product_detail-btn-buynow">Thêm vào giỏ hàng</button>
 
 </div>
 
@@ -62,14 +71,29 @@ btnQuantityAdd.addEventListener("click", () => {
 //Tạo một hàm JavaScript để thêm sản phẩm vào giỏ hàng và lưu vào Local Storage:
 function addToCart(productName, productPrice, quantity) {
   // Lấy danh sách sản phẩm từ Local Storage (nếu đã tồn tại)
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let productInCart = listUsers.cart.find(item=>item.productID===productId)
+  if(productInCart){
+    //Neu da co, cong dan so luong
+    productInCart.quantity += quantity;
+  }else{
+    //neu chua co, them moi
+    listUsers.cart.push{
+      productID: productId,
+      quantity: quantity,
+      price: productPrice,
+      
 
+    }
+  }
+
+  }
+   
   // Tạo một đối tượng sản phẩm
   const product = {
-    name: productName,
-    price: productPrice,
+   
     quantity: quantity,
-  };
+  }; name: productName,
+    
 
   // Kiểm tra xem sản phẩm đã có trong giỏ hàng chưa
   const existingProductIndex = cart.findIndex(
@@ -80,12 +104,34 @@ function addToCart(productName, productPrice, quantity) {
     // Nếu sản phẩm đã tồn tại trong giỏ hàng, cập nhật số lượng
     cart[existingProductIndex].quantity += quantity;
   } else {
+    const listUser = JSON.parse(localStorage.getItem("listUsers")) || [];
+    const userLogin = JSON.parse(localStorage.getItem("userLogin"));
+
+    const userDB = listUser.find((user) => user.email == userLogin.email);
+
+    if (userDB?.cart) {
+      let isExist = false;
+      for (const productCart of userDB.cart) {
+        if (product.id === productCart.id) {
+          productCart.quantity += quantity;
+          isExist = true;
+          break;
+        }
+      }
+      if (!isExist) {
+        userDB.cart.push(product);
+      }
+    } else {
+      product.quantity = quantity;
+      userDB.cart = [product];
+    }
+
+    localStorage.setItem("listUsers", JSON.stringify(listUser));
     // Nếu sản phẩm chưa có trong giỏ hàng, thêm vào danh sách
-    cart.push(product);
   }
 
   // Lưu danh sách sản phẩm vào Local Storage
-  localStorage.setItem("cart", JSON.stringify(cart));
+  localStorage.setItem("listUsers", JSON.stringify(listUser));
 
   // Hiển thị thông báo cho người dùng
   alert("Mua hàng thành công. Đã thêm sản phẩm vào giỏ hàng");
@@ -106,6 +152,7 @@ buyNowButton.addEventListener("click", function () {
   console.log(quantity);
 
   addToCart(productName, productPrice, quantity);
+  changeCartNumber();
 });
 
 function displayCart() {
@@ -158,6 +205,7 @@ function removeItemFromCart(index) {
 
   // Hiển thị lại giỏ hàng sau khi xóa
   displayCart();
+  changeCartNumber();
 }
 window.addEventListener("load", displayCart);
 
@@ -205,4 +253,5 @@ function addToCard(quantity) {
   }
 
   localStorage.setItem("listUsers", JSON.stringify(listUser));
+  changeCartNumber();
 }

@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../../assets/css/index.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link đến Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/card.css">
+    <link rel="stylesheet" href="../../assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/sanphamyeuthich.css">
+
     <title>PiTi Cosmetic</title>
+  
 </head>
 
 <body>
@@ -38,18 +41,18 @@
                         <ul class="nav d-flex justify-content-between align-items-center">
 
                             <li class="nav-bar-item">
-                                <a href="./card.html">
-                                    <i class="fa fa-shopping-cart"></i>(0)
+                                <a href="../user/cart/index.html">
+                                    <i class="fa fa-shopping-cart"><span> </span><span id="number-cart"></span></i>
                                 </a>
                             </li>
                             <li class="nav-bar-item">
-                                <a href="./sanphamyeuthich.html">
+                                <a href="../product/san-pham-yeu-thich.html">
                                     <i class="fa fa-heart"></i>
                                     Yêu thích
                                 </a>
                             </li>
                             <li class="nav-bar-item" id="info-user">
-                                <a href="./login.html">
+                                <a href="../../auth/login.html/index.html">
                                     <i class="fa fa-user"></i>
                                     Tài khoản
                                 </a>
@@ -163,7 +166,7 @@
         </div>
 
     </main>
-    <footer class="bg-secondary text-black" style="background-color:#ffffff !important">
+    <footer class=" text-black">
         <div class="container">
             <div class="row py-4">
                 <div class="col-md-3">
@@ -201,8 +204,10 @@
             </div>
         </div>
     </footer>
+    <script src="../data/database.js"></script>
+    <script src="../js/search-product.js"></script>
+    <script src="../js/product.js"></script>
     <script src="../js/check-login.js"></script>
-
 </body>
 
 </html>

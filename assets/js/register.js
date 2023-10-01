@@ -41,7 +41,7 @@ formEl.addEventListener("submit", (e) => {
     users.push(user);
     localStorage.setItem("users", JSON.stringify(users));
     // Điều hướng login
-    document.location.href = "/html/login.html";
+    document.location.href = "/auth/login.html/index.html";
   } else {
     error.isError = true;
     error.msgEmail = "Email đã tồn tại. Vui lòng nhập email khác.";

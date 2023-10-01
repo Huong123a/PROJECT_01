@@ -12,10 +12,10 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../assets/css/index.css">
-    <link rel="stylesheet" href="../../assets/css/sanpham.css">
+    <link rel="stylesheet" href="/assets/css/sanpham.css">
 
     <title>PiTi Cosmetic</title>
-  
+
 
 
 
@@ -44,7 +44,9 @@
 
                         <li class="nav-bar-item">
                             <a href="../user/cart/index.html">
-                                <i class="fa fa-shopping-cart"></i>(0)
+                                <i class="fa fa-shopping-cart"><span> </span>
+                                    <span id="number-cart">1</span>
+                                </i>
                             </a>
                         </li>
                         <li class="nav-bar-item">
@@ -199,11 +201,14 @@
                 </div>
             </div>
         </div>
+
     </footer>
-    <script src="../data/database.js"></script>
-    <script src="../js/search-product.js"></script>
-    <script src="../js/product.js"></script>
-    <script src="../js/check-login.js"></script>
+    <script src="/models/data/data.js"></script>
+    <script src="/assets/js/search-product.js"></script>
+    <script src="/assets/js/product.js"></script>
+    <script src="/assets/js/check-login.js"></script>
+    <script src="/components/displayQuantityCart.js"></script>
+
 </body>
 
 </html>

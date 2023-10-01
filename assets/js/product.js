@@ -43,3 +43,5 @@ function handleView(id) {
 
   document.location.href = "./detail-product.html";
 }
+
+
