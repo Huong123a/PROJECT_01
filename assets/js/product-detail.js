@@ -60,7 +60,7 @@ function rederProductDetail() {
         <a><button type='button' class="btn-add-product_detail" onclick='handleAddCart("${
           product.ID
         }")'>
-            Thêm vào giỏ hàng
+           Thêm vào giỏ hàng
           </button></a> <br>
   
         <button class="product_detail-btn-buynow">Mua ngay</button>
@@ -83,7 +83,7 @@ function handleAddCart(id) {
   const productsDB = JSON.parse(localStorage.getItem("products"));
   const usersDB = JSON.parse(localStorage.getItem("users"));
   const userLogin = JSON.parse(localStorage.getItem("userLogin")) || {};
-   let productUser = {};
+  let productUser = {};
   for (const product of productsDB) {
     if (product.ID === id) {
       product.qantity = quantityInputElement.value;
@@ -112,7 +112,7 @@ function handleQuantityAdd() {
 }
 function handleQuantityReduce() {
   console.log(9999999);
- if (Number(quantityInputElement.value) > 1) {
+  if (Number(quantityInputElement.value) > 1) {
     quantityInputElement.value = Number(quantityInputElement.value) - 1;
   } else {
     quantityInputElement.value = 1;

@@ -47,16 +47,16 @@ function removeItemFromCart(index) {
   for (const user of usersDB) {
     if (user.email === userLogin.email) {
       user.cart.splice(index, 1);
-      console.log(888,user.cart);
+      console.log(888, user.cart);
       localStorage.setItem("users", JSON.stringify(usersDB));
-     
-  renderCart();
+
     }
   }
-
-  // Lưu danh sách sản phẩm mới vào Local Storage
   
+  renderCart();
+  // Lưu danh sách sản phẩm mới vào Local Storage
 
   // Hiển thị lại giỏ hàng sau khi xóa
 }
 // window.addEventListener("load", displayCart);
+function addProduct(index) {}

@@ -21,7 +21,7 @@ function renderProducts(data) {
                   <a href="#">${product.name}</a>
 
                       <p class="card-price">$${product.price.toLocaleString()}VND</p>
-                      <a href="#" class="btn btn-warning" onclick="handleView('${product.ID}')">Thêm vào giỏ hàng</a>
+                      <a href="#" class="btn btn-warning" onclick="handleView('${product.ID}')">Xem chi tiết sản phẩm</a>
                   </div>
               </div>
           </div>

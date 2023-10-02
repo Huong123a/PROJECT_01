@@ -8,7 +8,7 @@ function checklogin() {
   const userLogin = JSON.parse(localStorage.getItem("userLogin")) || {};
   for (const user of usersDB) {
     if (userLogin.email === user.email) {
-      userElement.innerHTML = `<a href="./auth/login.html/index.html">
+      userElement.innerHTML = `<a href="">
       <i class="fa fa-user"></i>
       ${user.name}
     </a>`;

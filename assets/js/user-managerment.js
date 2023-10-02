@@ -34,7 +34,7 @@ function handleViewUser(email) {
   const phoneEl = document.querySelector("#phone");
   const genderEl = document.querySelector("#gender");
 
-  const user = listUsers.find((user) => user.email === email);
+  const user = listUsers.find((user) => user.email === email); // tìm người dùng trong mảng listUsers 
   emailEl.value = user.email;
   nameEl.value = user.name;
   addressEl.value = user.address || "";
