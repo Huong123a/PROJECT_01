@@ -61,7 +61,7 @@ function handleAddProduct() {
     "#product-description"
   );
   const newProduct = {
-    ID: idProductElement.value,
+    ID: idProductElement,
     name: nameProductElement.value,
     skin: skinProductElement.value,
     price: Number(priceProductElement.value),

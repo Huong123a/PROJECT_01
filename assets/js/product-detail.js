@@ -85,23 +85,52 @@ function handleAddCart(id) {
   const userLogin = JSON.parse(localStorage.getItem("userLogin")) || {};
   let productUser = {};
   for (const product of productsDB) {
+    //  nếu trùng id thì xem xét tiếp
+    //  xem có sản phẩm nào trong giỏ hàng chưa, nếu có thì cộng số lượng, nếu chưa thì thêm mới
     if (product.ID === id) {
-      product.qantity = quantityInputElement.value;
-      productUser = product;
-      console.log(444, productUser);
-      for (const user of usersDB) {
-        if (userLogin.email === user.email) {
-          if (!user.cart) {
-            user.cart = [productUser];
-            console.log(777, user.cart);
-          } else {
-            user.cart.push(productUser);
-          }
-          localStorage.setItem("users", JSON.stringify(usersDB));
-        }
-      }
+      productUser = {
+        ...product,
+        quantity: Number(quantityInputElement.value),
+      };
+      break;
     }
   }
+  let user = {};
+  for (const userItem of usersDB) {
+    if (userItem.email === userLogin.email) {
+      user = userItem;
+      break;
+    }
+  }
+
+  if (user.cart) {
+    let isExist = false;
+    for (const product of user.cart) {
+      if (product.ID === id) {
+        product.quantity += Number(quantityInputElement.value);
+        isExist = true;
+        break;
+      }
+    }
+    if (!isExist) {
+      user.cart.push(productUser);
+    }
+  } else {
+    user.cart = [productUser];
+  }
+
+  for (const userItem of usersDB) {
+    if (userItem.email === userLogin.email) {
+      userItem.cart = user.cart;
+      break;
+    }
+  }
+
+  localStorage.setItem("users", JSON.stringify(usersDB));
+  console.log(333, usersDB);
+
+  //  cập nhật lại số lượng sản phẩm trong giỏ hàng
+
   location.href = "/pages/user/cart/index.html";
 }
 
